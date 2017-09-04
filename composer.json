@@ -1,0 +1,25 @@
+{
+  "name": "andrewwoods/phpCliApps",
+  "description": "PHP Command Line Applications Talk",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrew Woods",
+      "email": "atwoods1@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "andrewwoods\\phpCliApps\\": "src/"
+    },
+    "files": [
+      "config.php"
+    ]
+  },
+  "minimum-stability": "alpha",
+  "require": {
+    "php": ">=7.1.0",
+    "symfony/console": "^3.3"
+  }
+}
