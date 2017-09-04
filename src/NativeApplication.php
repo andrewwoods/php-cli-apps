@@ -63,10 +63,9 @@ class NativeApplication extends AbstractApplication
         $keyword = (isset($this->arguments[0])) ? $this->arguments[0] : '';
 
         $talksRepository = new Talks();
-        $talks = $talksRepository->get();
-        $filtered = $talksRepository->search($talks, $keyword);
+        $talks = $talksRepository->search($keyword);
 
-        $this->displayTable($filtered);
+        $this->displayTable($talks);
     }
 
     /**

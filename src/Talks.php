@@ -35,13 +35,13 @@ class Talks
     /**
      * Filter the list of talks when a keyword is available.
      *
-     * @param $talks
      * @param string $keyword
      *
      * @return array
      */
-    public function search($talks, $keyword = '')
+    public function search($keyword = '')
     {
+        $talks = $this->get();
         if (empty($keyword)) {
             return $talks;
         }

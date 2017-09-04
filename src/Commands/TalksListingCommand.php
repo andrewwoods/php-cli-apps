@@ -45,13 +45,12 @@ class TalksListingCommand extends Command
         }
 
         $talksRepository = new Talks();
-        $talks = $talksRepository->get();
-        $filtered = $talksRepository->search($talks, $keyword);
+        $talks = $talksRepository->search($keyword);
 
         $table = new Table($output);
         $table
             ->setHeaders(['ID', 'Title', 'Speaker', 'Date', 'Start Time', 'End Time', 'Type', 'Level'])
-            ->setRows($filtered)
+            ->setRows($talks)
             ->render();
     }
 
