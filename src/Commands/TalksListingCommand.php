@@ -9,7 +9,6 @@ namespace andrewwoods\phpCliApps\Commands;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Helper\Table;
@@ -39,10 +38,6 @@ class TalksListingCommand extends Command
     {
         $keyword = $input->getArgument('keyword');
 
-        if ( $input->getOption('version') ) {
-            echo $this->displayVersionInfo();
-            exit(0);
-        }
 
         $talksRepository = new Talks();
         $talks = $talksRepository->search($keyword);
@@ -52,16 +47,6 @@ class TalksListingCommand extends Command
             ->setHeaders(['ID', 'Title', 'Speaker', 'Date', 'Start Time', 'End Time', 'Type', 'Level'])
             ->setRows($talks)
             ->render();
-    }
-
-    /**
-     * Display the version info
-     *
-     * @return string
-     */
-    protected function displayVersionInfo()
-    {
-        echo $this->getName() . ' 0.1.0-alpha';
     }
 
 }
